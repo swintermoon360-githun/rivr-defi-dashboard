@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Helvetica Regular";
+    src: url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.eot");
+    src: url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.svg#Helvetica Regular")format("svg");
+}
+
+@theme {
+  --font-helvetica: "Helvetica Regular", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  font-family: var(--font-helvetica);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #f0f0f0;
+}
+
+/* 3D floating animations */
+@keyframes float3d {
+  0%, 100% { transform: translateY(0px) rotateX(0deg) rotateZ(0deg); }
+  33% { transform: translateY(-8px) rotateX(2deg) rotateZ(0.5deg); }
+  66% { transform: translateY(-4px) rotateX(-1deg) rotateZ(-0.5deg); }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-6px) translateX(2px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(30,50,90,0.08), 0 8px 32px rgba(30,50,90,0.06); }
+  50% { box-shadow: 0 0 40px rgba(30,50,90,0.15), 0 16px 48px rgba(30,50,90,0.1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes orb1 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 10px) scale(0.95); }
+}
+
+@keyframes orb2 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(-25px, 15px) scale(1.08); }
+  66% { transform: translate(15px, -25px) scale(0.92); }
+}
+
+@keyframes orb3 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(20px, 20px) scale(1.06); }
+}
+
+@keyframes particleDrift {
+  0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(-10vh) translateX(60px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(30,50,90,0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(30,50,90,0); }
+}
+
+.float-3d {
+  animation: float3d 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.float-card {
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.badge-pulse {
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+.perspective-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
